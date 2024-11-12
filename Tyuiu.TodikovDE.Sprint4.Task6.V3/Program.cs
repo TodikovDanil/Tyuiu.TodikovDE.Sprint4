@@ -1,5 +1,5 @@
-﻿using Tyuiu.TodikovDE.Sprint4.Task5.V16.Lib;
-namespace Tyuiu.TodikovDE.Sprint4.Task5.V16
+﻿using Tyuiu.TodikovDE.Sprint4.Task6.V3.Lib;
+namespace Tyuiu.TodikovDE.Sprint4.Task6.V3
 {
     internal class Program
     {
@@ -19,56 +19,17 @@ namespace Tyuiu.TodikovDE.Sprint4.Task5.V16
             Console.WriteLine("**************************************************************************");
 
             DataService ds = new DataService();
-            Random rnd = new Random();
-            Console.WriteLine("Введите количество строк в массиве: ");
-            int rows = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Введите количество столбцов в массиве: ");
-            int colums = Convert.ToInt32(Console.ReadLine());
-
-            int[,] mtrx = new int[rows, colums];
-
-            Console.WriteLine("***************************************************************************");
-
-            for (int i = 0; i < rows; i++)
+            var moth = new string[] { "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" };
+            Console.WriteLine("Исходный массив: ");
+            for (int i = 0; i <= moth.Length - 1; i++)
             {
-                for (int j = 0; j < colums; j++)
-                {
-                    mtrx[i, j] = rnd.Next(-6, 3);
-                }
+                Console.WriteLine(moth[i]);
             }
-
-            Console.WriteLine("\nМассив:");
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < colums; j++)
-                {
-                    Console.Write($"{mtrx[i, j]} \t");
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine();
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
-            int[,] res = ds.Calculate(mtrx);
-            for (int i = 0; i < res.GetLength(0); i++)
-            {
-                for (int j = 0; j < res.GetLength(1); j++)
-                {
-                    Console.Write(res[i, j] + "\t");
-                }
-                Console.WriteLine();
-            }
-
-
-
-
-
-
-            Console.ReadLine();
-
-
+            Console.WriteLine(ds.Calculate(moth));
+            Console.ReadKey();
         }
     }
 }
