@@ -1,6 +1,5 @@
-﻿using System.Globalization;
-using Tyuiu.TodikovDE.Sprint4.Task1.V21.Lib;
-namespace Tyuiu.TodikovDE.Sprint4.Task1.V21
+﻿using Tyuiu.TodikovDE.Sprint4.Task2.V11.Lib;
+namespace Tyuiu.TodikovDE.Sprint4.Task2.V11
 {
     internal class Program
     {
@@ -10,8 +9,8 @@ namespace Tyuiu.TodikovDE.Sprint4.Task1.V21
             Console.WriteLine("**************************************************************************");
             Console.WriteLine("* Спритн #4                                                              *");
             Console.WriteLine("* Тема: Создания итогого решения по спринту                              *");
-            Console.WriteLine("* Задание #1                                                             *");
-            Console.WriteLine("* Вариант #21                                                            *");
+            Console.WriteLine("* Задание #2                                                             *");
+            Console.WriteLine("* Вариант #11                                                            *");
             Console.WriteLine("* Выполнил: Тодиков Даниил Эдуардович | ИСТНб-24-1                       *");
             Console.WriteLine("**************************************************************************");
             Console.WriteLine("*                                                                        *");
@@ -21,17 +20,15 @@ namespace Tyuiu.TodikovDE.Sprint4.Task1.V21
 
 
             DataService ds = new DataService();
-            int len;
-            Console.WriteLine("Введите длину массива");
-            len = Convert.ToInt32(Console.ReadLine());
+            Random rnd = new Random();
+            Console.WriteLine("Введите количество элемнтов массив: ");
+            int len = Convert.ToInt32(Console.ReadLine());
             int[] numArray = new int[len];
-            for (int i = 0; i <= len - 1; i++)
+            for (int i = 0; i <= len -1; i++)
             {
-                Console.WriteLine("Введите значение " + i + "элемента массива");
-                numArray[i] = Convert.ToInt32(Console.ReadLine());
+                numArray[i] = rnd.Next(3,9);
             }
-            Console.WriteLine();
-            Console.WriteLine("Массив : ");
+            Console.WriteLine("Массив: ");
             for (int i = 0; i <= len - 1; i++)
             {
                 Console.WriteLine(numArray[i] + "/t");
@@ -43,7 +40,6 @@ namespace Tyuiu.TodikovDE.Sprint4.Task1.V21
             Console.WriteLine("***************************************************************************");
             Console.WriteLine(ds.Calculate(numArray));
             Console.ReadKey();
-
         }
     }
 }
